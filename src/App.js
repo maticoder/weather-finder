@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import SearchBar from "./components/SearchBar/SearchBar";
+import Weather from "./components/Weather/Weather";
 
 import "./App.css";
 
@@ -8,24 +10,31 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            city: ""
+            data: null
         };
     }
 
-    changeCity = e => {
-        this.setState({
-            city: e.target.value
-        });
+    changeCity = city => {
+        axios
+            .get(
+                `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=001eccf552aa9703a0bba9b81f75bbcb`
+            )
+            .then(res => {
+                this.setState({
+                    data: res.data
+                });
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
 
     render() {
         return (
             <div className="app">
-                <SearchBar
-                    city={this.state.city}
-                    changeCity={this.changeCity}
-                />
-                <p>{this.state.city}</p>
+                <SearchBar changeCity={this.changeCity} />
+                <Weather data={this.state.data} />
             </div>
         );
     }
