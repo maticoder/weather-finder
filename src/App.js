@@ -10,24 +10,33 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            city: "",
+            data: null // zmienic na ""
         };
     }
 
     changeCity = city => {
-        axios
-            .get(
-                `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=001eccf552aa9703a0bba9b81f75bbcb`
-            )
-            .then(res => {
-                this.setState({
-                    data: res.data
-                });
-                console.log(res.data);
-            })
-            .catch(err => {
-                console.error(err);
-            });
+        this.setState(
+            {
+                city: city,
+                data: null
+            },
+            () => {
+                axios
+                    .get(
+                        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`
+                    )
+                    .then(res => {
+                        this.setState({
+                            data: res.data
+                        });
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            }
+        );
     };
 
     render() {

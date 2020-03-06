@@ -1,0 +1,35 @@
+.city {
+    font-size: 3em;
+    font-weight: 300;
+}
+
+.description {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.main-temp {
+    font-size: 90px;
+    font-weight: 200;
+}
+
+.temperature {
+    position: relative;
+}
+
+.temp {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 24px;
+    font-weight: 300;
+    bottom: 7px;
+}
+
+.min-temp {
+    display: block;
+}
+
+.max-temp {
+    display: block;
+}

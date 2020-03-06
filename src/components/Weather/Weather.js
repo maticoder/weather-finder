@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 
+import Main from "../Main/Main";
+import Loader from "../Loader/Loader";
+import Welcome from "../Welcome/Welcome";
+
+import "./Weather.css";
+
 class Weather extends Component {
     constructor(props) {
         super(props);
@@ -10,11 +16,12 @@ class Weather extends Component {
         const { data } = this.props;
         return (
             <div className="weather">
-                {this.props.city !== "" && this.props.data !== null && (
-                    <p>
-                        W {data.name} ({data.sys.country}) mamy obecenie{" "}
-                        {data.main.temp - 273.15} stopni!
-                    </p>
+                {this.props.data !== null && this.props.data !== "" ? (
+                    <Main data={data} />
+                ) : this.props.data === "" ? (
+                    <Welcome />
+                ) : (
+                    <Loader />
                 )}
             </div>
         );
