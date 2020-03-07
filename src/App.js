@@ -19,8 +19,19 @@ class App extends Component {
     }
 
     changeCity = city => {
-        let one = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
-        let two = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
+        this.setState(
+            {
+                city: city,
+                data: null,
+                wholeData: null
+            },
+            this.callForData
+        );
+    };
+
+    callForData = () => {
+        let one = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
+        let two = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
 
         const requestOne = axios.get(one);
         const requestTwo = axios.get(two);
@@ -33,7 +44,6 @@ class App extends Component {
                     const responseTwo = responses[1];
 
                     this.setState({
-                        city: city,
                         data: responseOne.data,
                         wholeData: responseTwo.data
                     });
@@ -48,7 +58,10 @@ class App extends Component {
         return (
             <div className="app">
                 <Router>
-                    <SearchBar changeCity={this.changeCity} />
+                    <SearchBar
+                        changeCity={this.changeCity}
+                        callForData={this.callForData}
+                    />
                     <Switch>
                         <Route exact path="/" component={Welcome} />
                         <Route

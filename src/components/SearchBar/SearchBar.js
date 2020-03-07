@@ -19,8 +19,8 @@ class SearchBar extends Component {
 
     onWeatherFormSubmit = e => {
         e.preventDefault();
-        this.props.changeCity(this.state.city);
         this.props.history.push("/weather");
+        this.props.changeCity(this.state.city);
     };
 
     render() {
