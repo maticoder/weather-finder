@@ -16,3 +16,5 @@ moment
 ```
 
 ## How does it look like?
+
+![](https://github.com/maticoder/weather-finder/blob/master/how.gif)
