@@ -4,6 +4,19 @@ $logoDelay: 1.4s;
 $madeDelay: 2.1s;
 $authorDelay: 2.1s;
 
+.welcome {
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .welcome {
+        margin-top: 0px;
+    }
+}
+
 .name {
     font-size: 4em;
     font-weight: 200;

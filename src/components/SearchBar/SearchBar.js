@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 import "./SearchBar.css";
 
@@ -19,6 +20,7 @@ class SearchBar extends Component {
     onWeatherFormSubmit = e => {
         e.preventDefault();
         this.props.changeCity(this.state.city);
+        this.props.history.push("/weather");
     };
 
     render() {
@@ -48,4 +50,4 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

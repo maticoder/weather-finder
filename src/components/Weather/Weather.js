@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Main from "../Main/Main";
 import Loader from "../Loader/Loader";
-import Welcome from "../Welcome/Welcome";
 
 import "./Weather.css";
 
@@ -16,13 +15,8 @@ class Weather extends Component {
         const { data, wholeData } = this.props;
         return (
             <div className="weather">
-                {this.props.data !== null &&
-                this.props.data !== "" &&
-                this.props.wholeData !== null &&
-                this.props.wholeData !== "" ? (
+                {this.props.data !== null && this.props.wholeData !== null ? (
                     <Main data={data} wholeData={wholeData} />
-                ) : this.props.data === "" && this.props.wholeData === "" ? (
-                    <Welcome />
                 ) : (
                     <Loader />
                 )}
