@@ -1,5 +1,9 @@
 .search-bar {
     text-align: center;
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: search 1s;
+    animation-fill-mode: forwards;
 }
 
 .input-field {
@@ -120,5 +124,17 @@ input:focus~.highlight {
     to {
         width: 0;
         background: transparent;
+    }
+}
+
+@keyframes search {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

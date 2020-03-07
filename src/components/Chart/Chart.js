@@ -49,6 +49,9 @@ class Chart extends Component {
                 axisY: {
                     labelOffset: {
                         x: -10
+                    },
+                    labelInterpolationFnc: value => {
+                        return value + String.fromCharCode(176);
                     }
                 }
                 // showArea: true
