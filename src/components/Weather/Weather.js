@@ -13,12 +13,15 @@ class Weather extends Component {
     }
 
     render() {
-        const { data } = this.props;
+        const { data, wholeData } = this.props;
         return (
             <div className="weather">
-                {this.props.data !== null && this.props.data !== "" ? (
-                    <Main data={data} />
-                ) : this.props.data === "" ? (
+                {this.props.data !== null &&
+                this.props.data !== "" &&
+                this.props.wholeData !== null &&
+                this.props.wholeData !== "" ? (
+                    <Main data={data} wholeData={wholeData} />
+                ) : this.props.data === "" && this.props.wholeData === "" ? (
                     <Welcome />
                 ) : (
                     <Loader />

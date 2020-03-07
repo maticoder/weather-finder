@@ -11,7 +11,8 @@ class App extends Component {
         super(props);
         this.state = {
             city: "",
-            data: null // zmienic na ""
+            data: "", // zmienic na ""
+            wholeData: "" // zmienic na ""
         };
     }
 
@@ -19,16 +20,30 @@ class App extends Component {
         this.setState(
             {
                 city: city,
-                data: null
+                data: null,
+                wholeData: null
             },
             () => {
                 axios
                     .get(
-                        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`
+                        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`
                     )
                     .then(res => {
                         this.setState({
                             data: res.data
+                        });
+                        console.log(res.data);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+                axios
+                    .get(
+                        `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`
+                    )
+                    .then(res => {
+                        this.setState({
+                            wholeData: res.data
                         });
                         console.log(res.data);
                     })
@@ -43,7 +58,10 @@ class App extends Component {
         return (
             <div className="app">
                 <SearchBar changeCity={this.changeCity} />
-                <Weather data={this.state.data} />
+                <Weather
+                    data={this.state.data}
+                    wholeData={this.state.wholeData}
+                />
             </div>
         );
     }

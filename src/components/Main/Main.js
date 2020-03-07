@@ -9,7 +9,11 @@ import thunderstorm from "../../img/thunderstorm.svg";
 import fog from "../../img/fog.svg";
 import smoke from "../../img/smoke.svg";
 
+import Chart from "../Chart/Chart";
+
 import "./Main.css";
+
+import moment from "moment";
 
 const mapDescriptionToIcon = {
     Thunderstorm: thunderstorm,
@@ -31,17 +35,20 @@ const mapDescriptionToIcon = {
 
 class Main extends Component {
     render() {
-        const { data } = this.props;
+        const { data, wholeData } = this.props;
         return (
             <div className="weather-content">
                 <h1 className="city">
                     {data.name} ({data.sys.country})
                 </h1>
+                <p className="date">{moment().format("ddd, HH:mm")}</p>
                 <p className="description">{data.weather[0].description}</p>
                 <img
+                    className="icon"
                     width="70"
+                    height="70"
                     src={mapDescriptionToIcon[data.weather[0].main]}
-                    alt="cloud"
+                    alt="icon"
                 />
                 <div className="temperature">
                     <span className="main-temp">{data.main.temp}&#176;</span>
@@ -55,6 +62,7 @@ class Main extends Component {
                         </span>
                     </div>
                 </div>
+                <Chart data={wholeData} />
                 {/* <p>
                     W {data.name} ({data.sys.country}) mamy obecenie{" "}
                     {data.main.temp - 273.15} stopni!

@@ -1,0 +1,49 @@
+.chart {
+  width: 600px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 768px) {
+  .chart {
+    width: 400px;
+  }
+}
+.ct-series-a .ct-line {
+  stroke: #f75742;
+  stroke-width: 2px;
+  fill: none;
+  stroke-width: 2px;
+  stroke-dasharray: 5px;
+  animation: dashoffset 1s linear infinite;
+}
+.ct-series-a .ct-point {
+  stroke-width: 10px;
+  animation: point 1s ease infinite;
+}
+.ct-labels .ct-horizontal {
+  font-size: 10px;
+  transform: rotateZ(-45deg);
+  position: relative;
+  justify-content: flex-end;
+  text-align: right;
+}
+@keyframes point {
+  0% {
+    stroke-width: 10px;
+  }
+  50% {
+    stroke-width: 12px;
+  }
+  100% {
+    stroke-width: 10px;
+  }
+}
+@keyframes dashoffset {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -20px;
+  }
+}

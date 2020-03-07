@@ -1,14 +1,46 @@
 .city {
   font-size: 3em;
   font-weight: 300;
+  animation: show 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 .description {
   font-size: 20px;
   font-weight: 300;
+  animation: show 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+.icon {
+  animation: show 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 1.5s;
+}
+.temperature {
+  height: 122px;
 }
 .main-temp {
   font-size: 90px;
   font-weight: 200;
+  animation: bum 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+.temp span {
+  animation: bu 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 2.5s;
+}
+.temp hr {
+  animation: bu 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 2.5s;
 }
 .temperature {
   position: relative;
@@ -26,4 +58,46 @@
 }
 .max-temp {
   display: block;
+}
+.date {
+  font-size: 30px;
+  font-weight: 300;
+  animation: show 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 500ms;
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bum {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    font-size: 110px;
+  }
+  100% {
+    font-size: 90px;
+    opacity: 1;
+  }
+}
+@keyframes bu {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    font-size: 30px;
+  }
+  100% {
+    font-size: 24px;
+    opacity: 1;
+  }
 }
