@@ -21,7 +21,7 @@ function Welcome() {
                 Mati
                 {/* {" "} */}
                 {/* <span className="emoji" role="img" aria-label="emoji">
-                    ✌
+                    🤙
                 </span> */}
             </p>
         </div>

@@ -14,24 +14,24 @@ class App extends Component {
         this.state = {
             city: "",
             data: null,
-            wholeData: null
+            wholeData: null,
         };
     }
 
-    changeCity = city => {
+    changeCity = (city) => {
         this.setState(
             {
                 city: city,
                 data: null,
-                wholeData: null
+                wholeData: null,
             },
             this.callForData
         );
     };
 
     callForData = () => {
-        let one = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
-        let two = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb&lang=pl`;
+        let one = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
+        let two = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
 
         const requestOne = axios.get(one);
         const requestTwo = axios.get(two);
@@ -45,11 +45,11 @@ class App extends Component {
 
                     this.setState({
                         data: responseOne.data,
-                        wholeData: responseTwo.data
+                        wholeData: responseTwo.data,
                     });
                 })
             )
-            .catch(err => {
+            .catch((err) => {
                 console.error(err);
             });
     };
