@@ -20,6 +20,28 @@ chartist
 moment
 ```
 
+## How to start using this app
+
+To start using this application you have to clone or download this repository using
+
+```
+git clone https://github.com/maticoder/weather-finder.git
+```
+
+command
+
+next you have to install all required node modules using
+
+```
+npm install
+```
+
+and that's all, now simply run this command
+
+```
+npm start
+```
+
 ## How does it look like?
 
 ![](https://github.com/maticoder/weather-finder/blob/master/how.gif)
