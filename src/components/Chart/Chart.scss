@@ -5,16 +5,6 @@
     margin-right: auto;
 }
 
-@media screen and (max-width: 768px) {
-    .chart {
-        width: 400px;
-    }
-
-    .ct-labels .ct-horizontal {
-        font-size: 10px;
-    }
-}
-
 .ct-series-a .ct-line {
     stroke: rgb(247, 87, 66);
     stroke-width: 2px;
@@ -70,5 +60,15 @@
 
     100% {
         stroke-dashoffset: -20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .chart {
+        width: 400px;
+    }
+
+    .ct-labels .ct-horizontal {
+        font-size: 10px;
     }
 }

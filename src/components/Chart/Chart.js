@@ -7,7 +7,7 @@ import "../../../node_modules/chartist/dist/chartist.css";
 import "./Chart.css";
 
 class Chart extends Component {
-    dateToLabel = date => {
+    dateToLabel = (date) => {
         date = date.slice(5, 16);
         // console.log(date);
         return date;
@@ -16,7 +16,7 @@ class Chart extends Component {
     componentDidMount() {
         let dataSeries = []; // this.props.data.list;
         let dataLabels = [];
-        this.props.data.list.forEach(element => {
+        this.props.data.list.forEach((element) => {
             dataSeries.push(element.main.temp);
             dataLabels.push(this.dateToLabel(element.dt_txt));
         });
@@ -30,11 +30,11 @@ class Chart extends Component {
             {
                 labels: dataLabels,
                 series: [
-                    dataSeries
+                    dataSeries,
                     // [4, 5, 3, 7, 3, 5, 5, 3, 4, 4, 5, 5],
                     // [5, 3, 4, 5, 6, 3, 3, 4, 5, 6, 3, 4],
                     // [3, 4, 5, 6, 7, 6, 4, 5, 6, 7, 6, 3]
-                ]
+                ],
             },
             {
                 // low: 0,
@@ -43,17 +43,17 @@ class Chart extends Component {
                     offset: 40, //Insert here your axisX offset and play with the values
                     labelOffset: {
                         x: -10,
-                        y: 5
-                    }
+                        y: 5,
+                    },
                 },
                 axisY: {
                     labelOffset: {
-                        x: -10
+                        x: -10,
                     },
-                    labelInterpolationFnc: value => {
+                    labelInterpolationFnc: (value) => {
                         return value + String.fromCharCode(176);
-                    }
-                }
+                    },
+                },
                 // showArea: true
             }
         );
@@ -64,12 +64,12 @@ class Chart extends Component {
             durations = 500;
 
         // Once the chart is fully created we reset the sequence
-        chart.on("created", function() {
+        chart.on("created", function () {
             seq = 0;
         });
 
         // On each drawn element by Chartist we use the Chartist.Svg API to trigger SMIL animations
-        chart.on("draw", function(data) {
+        chart.on("draw", function (data) {
             seq++;
 
             if (data.type === "line") {
@@ -83,8 +83,8 @@ class Chart extends Component {
                         // The value where the animation should start
                         from: 0,
                         // The value where it should end
-                        to: 1
-                    }
+                        to: 1,
+                    },
                 });
             } else if (data.type === "label" && data.axis === "x") {
                 data.element.animate({
@@ -94,8 +94,8 @@ class Chart extends Component {
                         from: data.y + 100,
                         to: data.y,
                         // We can specify an easing function from Chartist.Svg.Easing
-                        easing: "easeOutQuart"
-                    }
+                        easing: "easeOutQuart",
+                    },
                 });
             } else if (data.type === "label" && data.axis === "y") {
                 data.element.animate({
@@ -104,8 +104,8 @@ class Chart extends Component {
                         dur: durations,
                         from: data.x - 100,
                         to: data.x,
-                        easing: "easeOutQuart"
-                    }
+                        easing: "easeOutQuart",
+                    },
                 });
             } else if (data.type === "point") {
                 data.element.animate({
@@ -114,22 +114,22 @@ class Chart extends Component {
                         dur: durations,
                         from: data.x - 10,
                         to: data.x,
-                        easing: "easeOutQuart"
+                        easing: "easeOutQuart",
                     },
                     x2: {
                         begin: seq * delays,
                         dur: durations,
                         from: data.x - 10,
                         to: data.x,
-                        easing: "easeOutQuart"
+                        easing: "easeOutQuart",
                     },
                     opacity: {
                         begin: seq * delays,
                         dur: durations,
                         from: 0,
                         to: 1,
-                        easing: "easeOutQuart"
-                    }
+                        easing: "easeOutQuart",
+                    },
                 });
             } else if (data.type === "grid") {
                 // Using data.axis we get x or y which we can use to construct our animation definition objects
@@ -138,7 +138,7 @@ class Chart extends Component {
                     dur: durations,
                     from: data[data.axis.units.pos + "1"] - 30,
                     to: data[data.axis.units.pos + "1"],
-                    easing: "easeOutQuart"
+                    easing: "easeOutQuart",
                 };
 
                 var pos2Animation = {
@@ -146,7 +146,7 @@ class Chart extends Component {
                     dur: durations,
                     from: data[data.axis.units.pos + "2"] - 100,
                     to: data[data.axis.units.pos + "2"],
-                    easing: "easeOutQuart"
+                    easing: "easeOutQuart",
                 };
 
                 var animations = {};
@@ -157,7 +157,7 @@ class Chart extends Component {
                     dur: durations,
                     from: 0,
                     to: 1,
-                    easing: "easeOutQuart"
+                    easing: "easeOutQuart",
                 };
 
                 data.element.animate(animations);

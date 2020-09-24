@@ -1,16 +1,21 @@
 .search-bar {
   text-align: center;
-  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px);
   opacity: 0;
-  animation: search 1s;
-  animation-fill-mode: forwards;
+  -webkit-animation: search 1s;
+          animation: search 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
+
 .input-field {
   position: relative;
   margin-bottom: 30px;
   margin-top: 30px;
   display: inline-block;
 }
+
 input {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
@@ -19,9 +24,11 @@ input {
   border: none;
   border-bottom: 1px solid #757575;
 }
+
 input:focus {
   outline: none;
 }
+
 label {
   color: #999;
   font-size: 18px;
@@ -34,39 +41,46 @@ label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
+
 input:focus ~ label,
 input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #5264ae;
+  color: #5264AE;
 }
+
 .bar {
   position: relative;
   display: block;
   width: 300px;
 }
+
 .bar:before,
 .bar:after {
-  content: "";
+  content: '';
   height: 2px;
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264ae;
+  background: #5264AE;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
+
 .bar:before {
   left: 50%;
 }
+
 .bar:after {
   right: 50%;
 }
+
 input:focus ~ .bar:before,
 input:focus ~ .bar:after {
   width: 50%;
 }
+
 .highlight {
   position: absolute;
   height: 60%;
@@ -76,45 +90,54 @@ input:focus ~ .bar:after {
   pointer-events: none;
   opacity: 0.5;
 }
+
 input:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;
 }
+
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264ae;
+    background: #5264AE;
   }
   to {
     width: 0;
     background: transparent;
   }
 }
-@-moz-keyframes inputHighlighter {
-  from {
-    background: #5264ae;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
+
 @keyframes inputHighlighter {
   from {
-    background: #5264ae;
+    background: #5264AE;
   }
   to {
     width: 0;
     background: transparent;
   }
 }
-@keyframes search {
+
+@-webkit-keyframes search {
   0% {
     opacity: 0;
-    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes search {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }

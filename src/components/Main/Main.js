@@ -30,7 +30,7 @@ const mapDescriptionToIcon = {
     Squall: thunderstorm,
     Tornado: smoke,
     Clear: sun,
-    Clouds: cloud
+    Clouds: cloud,
 };
 
 class Main extends Component {

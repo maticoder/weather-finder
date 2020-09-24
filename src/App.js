@@ -30,8 +30,8 @@ class App extends Component {
     };
 
     callForData = () => {
-        let one = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
-        let two = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
+        let one = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
+        let two = `https://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&units=metric&appid=001eccf552aa9703a0bba9b81f75bbcb`;
 
         const requestOne = axios.get(one);
         const requestTwo = axios.get(two);
