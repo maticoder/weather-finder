@@ -44,4 +44,4 @@ npm start
 
 ## How does it look like?
 
-![](https://github.com/maticoder/weather-finder/blob/master/how.gif)
+![](https://github.com/maticoder/weather-finder/blob/master/weather.gif)
